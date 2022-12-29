@@ -1,0 +1,68 @@
+.counter {
+    position: relative;
+    margin-bottom: 150px;
+    &__wrapper {
+        background: $color-white;
+        border: 1px solid $color-border;
+        border-radius: 21px;
+        padding: 30px 0;
+        display: grid;
+        z-index: 3;
+        position: relative;
+        grid-template-columns: 1fr 1fr 1fr;
+        @include desktop-small {
+            padding: 0;
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        padding: 20px 125px;
+        text-align: center;
+        &:not(:last-child) {
+            border-right: 1px solid $color-border;
+        }
+        @include desktop-small {
+            border-right: 0;
+            &:not(:last-child) {
+                border-right: 1px solid $color-border;
+            }
+        }
+    }
+
+    &__amount {
+        margin-bottom: 2px;
+        @include text($font-secondary, 700, 40px, 50px, $color-text-primary);
+    }
+
+    &__title {
+        @include text($font-primary, 400, 16px, 20px, $color-text-secondary);
+    }
+
+    &__circle {
+        border-radius: 50%;
+        position: absolute;
+        &._big {
+            width: 288px;
+            height: 288px;
+            background: $color-grad-primary;
+            left: -186px;
+            top: 20px;
+            z-index: 1;
+            @include desktop-small {
+                display: none;
+            }
+        }
+        &._small {
+            width: 86px;
+            height: 86px;
+            background: $color-grad-secondary;
+            left: 0;
+            bottom: -136px;
+            z-index: 2;
+            @include desktop-small {
+                display: none;
+            }
+        }
+    }
+}

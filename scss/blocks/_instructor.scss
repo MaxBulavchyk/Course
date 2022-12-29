@@ -1,0 +1,76 @@
+.instructor {
+    padding: 0 40px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 120px;
+    @include desktop-small {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    &__info {
+        max-width: 560px;
+    }
+
+    &__title {
+        @include text($font-secondary, 700, 46px, 56px, $color-text-primary);
+        margin-bottom: 20px;
+    }
+
+    &__desc {
+        @include text($font-primary, 400, 20px, 30px, $color-text-secondary);
+    }
+
+    &__img {
+        background: $color-grad-primary;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        border-radius: 50%;
+        width: 354px;
+        height: 354px;   
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            display: block;
+            border-radius: 50%;
+            @include mobile {
+                display: none;
+            }
+        }
+
+        &::before {
+            background: $color-grad-secondary;
+            width: 88px;
+            height: 88px;
+            top: -8px;
+            left: -19px;
+            z-index: -1;
+            @include desktop-small {
+                display: none;
+            }
+        }
+
+        &::after {
+            background: $color-grad-secondary;
+            mix-blend-mode: normal;
+            opacity: 0.3;
+            width: 132px;
+            height: 132px;
+            right: -32px;
+            bottom: -21px;
+            z-index: -1;
+            @include desktop-small {
+                display: none;
+            }
+        }
+
+        img {
+            border-radius: 50%;
+            z-index: 0;
+        }
+    }
+}

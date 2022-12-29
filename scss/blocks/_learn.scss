@@ -1,0 +1,109 @@
+.learn {
+    position: relative;
+    margin-bottom: 120px;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 61px;
+    }
+
+    &__title {
+        @include text($font-secondary, 700, 46px, 56px, $color-text-primary);
+        margin-bottom: 20px;
+    }
+
+    &__desc {
+        @include text($font-secondary, 400, 20px, 30px, $color-text-secondary);
+        max-width: 560px;
+    }
+
+    &__item {
+        padding: 39px 54px 41px 46px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $color-grad-primary;
+            mix-blend-mode: normal;
+            opacity: 0.05;
+            border-radius: 21px;
+        }
+        @include desktop-small {
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+         }
+    }
+    &__body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__arrow {
+        background: $color-white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 64px;
+        height: 64px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.0535402);
+    }
+
+    &__subtitle {
+        @include text($font-secondary, 700, 24px, 24px, $color-text-primary);
+        margin-bottom: 20px;
+    }
+
+    &__subdesc {
+        max-width: 500px;
+        @include text($font-primary, 400, 16px, 24px, $color-text-secondary);
+    }
+
+    &__border {
+        padding: 20px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: $color-grad-primary;
+        border-radius: 33px;
+    }
+    &__circle {
+        border-radius: 50%;
+        position: absolute;
+        width: 382px;
+        height: 382px;
+        background: $color-grad-secondary;
+        right: -372px;
+        top: -150px;
+        @include desktop-small {
+            display: none;
+        }
+    }
+}
+
+.amount {
+    &__primary {
+        padding: 3px 38px;
+        @include text($font-primary, 600, 16px, 20px, $color-white);
+        border-right: 1px solid $color-primary-dark;
+    }
+
+    &__secondary {
+        padding: 3px 34px;
+        @include text($font-primary, 600, 16px, 20px, $color-white);
+    }
+}
