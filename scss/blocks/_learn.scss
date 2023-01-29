@@ -13,6 +13,9 @@
     &__title {
         @include text($font-secondary, 700, 46px, 56px, $color-text-primary);
         margin-bottom: 20px;
+        @include mobile {
+            @include text($font-secondary, 700, 34px, 56px, $color-text-primary);
+        }
     }
 
     &__desc {
@@ -26,6 +29,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 10px;
         margin-bottom: 30px;
         &::before {
             content: "";
@@ -39,29 +43,36 @@
             mix-blend-mode: normal;
             opacity: 0.05;
             border-radius: 21px;
+            z-index: -1;
         }
-        @include desktop-small {
+        @include tablet-small {
             flex-direction: column;
             gap: 30px;
             align-items: center;
          }
     }
+
     &__body {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         gap: 20px;
     }
 
     &__arrow {
         background: $color-white;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.0535402);
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
         width: 64px;
         height: 64px;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.0535402);
+        flex-shrink: 0;
+        @include mobile {
+            width: 40px;
+            height: 40px;
+        }
     }
 
     &__subtitle {
@@ -80,7 +91,9 @@
         grid-template-columns: 1fr 1fr;
         background: $color-grad-primary;
         border-radius: 33px;
+        flex-shrink: 0;
     }
+
     &__circle {
         border-radius: 50%;
         position: absolute;
@@ -96,6 +109,7 @@
 }
 
 .amount {
+    
     &__primary {
         padding: 3px 38px;
         @include text($font-primary, 600, 16px, 20px, $color-white);

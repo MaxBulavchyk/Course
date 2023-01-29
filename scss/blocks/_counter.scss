@@ -1,18 +1,18 @@
 .counter {
     position: relative;
     margin-bottom: 150px;
+
     &__wrapper {
         background: $color-white;
         border: 1px solid $color-border;
         border-radius: 21px;
         padding: 30px 0;
         display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         z-index: 3;
         position: relative;
-        grid-template-columns: 1fr 1fr 1fr;
         @include desktop-small {
             padding: 0;
-            grid-template-columns: 1fr;
         }
     }
 
@@ -23,16 +23,29 @@
             border-right: 1px solid $color-border;
         }
         @include desktop-small {
+            padding: 20px 75px;
             border-right: 0;
             &:not(:last-child) {
                 border-right: 1px solid $color-border;
             }
         }
+        @include tablet {
+            padding: 20px 50px;
+        }
+        @include tablet-small {
+            padding: 20px 20px;
+        }
+        @include mobile {
+            padding: 20px 5px;
+        }
     }
-
+    
     &__amount {
         margin-bottom: 2px;
         @include text($font-secondary, 700, 40px, 50px, $color-text-primary);
+        @include tablet-small {
+            font-size: 35px;
+        }
     }
 
     &__title {
@@ -42,6 +55,7 @@
     &__circle {
         border-radius: 50%;
         position: absolute;
+
         &._big {
             width: 288px;
             height: 288px;
@@ -49,10 +63,11 @@
             left: -186px;
             top: 20px;
             z-index: 1;
-            @include desktop-small {
-                display: none;
+            @include tablet-small {
+                top: -80px;
             }
         }
+        
         &._small {
             width: 86px;
             height: 86px;

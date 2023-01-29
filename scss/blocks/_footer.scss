@@ -1,19 +1,25 @@
 .footer {
+    padding: 63px 0 80px 0;
     background: rgba(205, 16, 255, 0.05);
-
-
-    &__wrapper {
-        padding: 80px 0;
-    }
 
     &__header {
         display: grid;
         grid-template-columns: 25% 75%;
         align-items: center;
         margin-bottom: 50px;
+        gap: 15px;
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
     }
 
     &__logo {
+        cursor: pointer;
+        @include mobile {
+            display: flex;
+            justify-content: center;
+        }
     }
 
     &__form {
@@ -32,34 +38,39 @@
         padding-right: 180px;
         @include text($font-primary, 400, 16px, 20px, $color-body);
         &::placeholder {
-            @include text($font-primary, 400, 16px, 20px, rgba(79, 89, 106, 1));
+            @include text($font-primary, 400, 16px, 20px, $color-text-secondary);
+            opacity: 0.5;
         }
     }
 
     &__btn {
         position: absolute;
         padding: 15px 30px;
+        border-radius: 33px;
+        @include text($font-primary, 700, 16px, 20px, $color-white);
+        background: $color-grad-primary;
         border: 0;
         outline: 0;
-        right: 15px;
+        right: 8px;
         top: 50%;
         transform: translateY(-50%);
-    }
-
-    &__link {
+        cursor: pointer;
     }
 
     &__item {
-        padding: 0 254px 0 234px;
+        padding: 0 100px 0 260px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        @include desktop-small {
-            grid-template-columns: 1fr; 
+        grid-template-columns: 2fr 1fr;
+        @include tablet {
+            grid-template-columns: 1fr;
             gap: 30px;
         }
-    }
-
-    &__info-primary {
+        @include tablet-small {
+            padding: 0 50px 0 180px;
+        }
+        @include mobile {
+            padding: 0 20px 0 30px;
+        }
     }
 
     &__title {
@@ -68,23 +79,19 @@
     }
 
     &__menu {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        max-height: 180px;
+        columns: 2;
         @include desktop-small {
- 
         }
     }
 
     &__li {
-        @include text($font-primary, 400, 16px, 20px, $color-text-secondary);
         margin-bottom: 20px;
     }
 
-    &__info-secondary {
-    }
-
-    &__product {
+    &__a {
+        @include text($font-primary, 400, 16px, 20px, $color-text-secondary);
+        &:hover {
+            color: $color-primary;
+        }
     }
 }

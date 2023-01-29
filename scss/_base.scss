@@ -25,13 +25,6 @@ li {
     list-style: none;
 }
 
-.container {
-    max-width: 1160px;
-    padding: 0 20px;
-    width: 100%;
-    margin: 0 auto;
-}
-
 img {
     max-width: 100%;
     height: auto;
@@ -43,6 +36,19 @@ h1, p, ul {
     padding: 0;
 }
 
+.wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1160px;
+    padding: 0 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .btn {
     border-radius: 33px;
     padding: 15px 30px;
@@ -51,7 +57,10 @@ h1, p, ul {
     display: inline-block;
     cursor: pointer;
     @include text($font-primary, 700, 16px, 20px, $color-white);
-    &_primary {
-        background: linear-gradient(44.11deg, #cd10ff 15.75%, #9f06ff 84.63%);
-    }   
+    background: $color-grad-primary;
+    transition: $transition;
+    &:hover {
+        background: $color-btn-hover;
+        scale: 1.05;
+    }
 }
